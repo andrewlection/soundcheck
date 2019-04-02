@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		497DED822253008C005C3726 /* SoundcheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497DED7F2252FF1D005C3726 /* SoundcheckTests.swift */; };
 		49838E1A22513E7B000F1E87 /* SetlistEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49838E1922513E7B000F1E87 /* SetlistEndpoint.swift */; };
 		49838E2C225159E1000F1E87 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49838E2B225159E1000F1E87 /* Playlist.swift */; };
 		49838E3722515A9D000F1E87 /* iTunesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49838E3622515A9D000F1E87 /* iTunesResponse.swift */; };
@@ -68,8 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		497DED7E2252FF1D005C3726 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "New Group/Info.plist"; sourceTree = SOURCE_ROOT; };
-		497DED7F2252FF1D005C3726 /* SoundcheckTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundcheckTests.swift; path = "New Group/SoundcheckTests.swift"; sourceTree = SOURCE_ROOT; };
 		49838E1922513E7B000F1E87 /* SetlistEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetlistEndpoint.swift; sourceTree = "<group>"; };
 		49838E2B225159E1000F1E87 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		49838E3622515A9D000F1E87 /* iTunesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesResponse.swift; sourceTree = "<group>"; };
@@ -140,16 +137,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		497DED83225300ED005C3726 /* SoundcheckTests */ = {
-			isa = PBXGroup;
-			children = (
-				497DED7F2252FF1D005C3726 /* SoundcheckTests.swift */,
-				497DED7E2252FF1D005C3726 /* Info.plist */,
-			);
-			name = SoundcheckTests;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		49838E1D2251546C000F1E87 /* iTunes API */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				49909313224FF3DD00A0F5E2 /* Soundcheck */,
-				497DED83225300ED005C3726 /* SoundcheckTests */,
 				49909312224FF3DD00A0F5E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -551,7 +537,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				497DED822253008C005C3726 /* SoundcheckTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +728,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5FZH6ZY2XU;
 				INFOPLIST_FILE = SoundcheckTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -763,6 +749,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5FZH6ZY2XU;
 				INFOPLIST_FILE = SoundcheckTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

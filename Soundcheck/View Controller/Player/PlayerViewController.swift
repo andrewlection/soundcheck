@@ -17,6 +17,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak private var detailLabel: UILabel!
     @IBOutlet weak private var progressView: UIProgressView!
     @IBOutlet weak private var playButton: UIButton!
+    @IBOutlet weak private var closeButton: UIButton!
     
     private let playlist: Playlist
     private let playListSongs: [PlaylistSong]
@@ -81,7 +82,17 @@ class PlayerViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction private func didSelectPlayButton(_ sender: Any) {
-        (queuePlayer.isPlaying) ? queuePlayer.pause() : queuePlayer.play()
+        if (queuePlayer.isPlaying) {
+            queuePlayer.pause()
+            playButton.setImage(UIImage(named: Constants.Icon.play), for: .normal)
+        } else {
+            queuePlayer.play()
+            playButton.setImage(UIImage(named: Constants.Icon.pause), for: .normal)
+        }
+    }
+    
+    @IBAction func didSelectCloseButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

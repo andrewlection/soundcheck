@@ -9,6 +9,10 @@
 import Foundation
 
 struct Constants {
+    struct Icon {
+        static let pause = "pause"
+        static let play = "play"
+    }
     struct TableViewCell {
         static let searchResultCell = "SearchResultCell"
     }
