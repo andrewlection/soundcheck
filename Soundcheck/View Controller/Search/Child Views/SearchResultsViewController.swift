@@ -10,6 +10,7 @@ import UIKit
 
 protocol SearchResultsDelegate: class {
     func didSelectSearchResult(_ setlist: Setlist)
+    func didSelectNewSearch()
 }
 
 final class SearchResultsViewController: UIViewController {
@@ -35,11 +36,16 @@ final class SearchResultsViewController: UIViewController {
         setupTableView()
     }
     
-    // MARK: -
+    // MARK: - UITableView
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.TableViewCell.searchResultCell)
+    }
+    
+    // MARK: - Actions
+    @IBAction func didSelectNewSearch(_ sender: Any) {
+        delegate?.didSelectNewSearch()
     }
 }
 
@@ -53,13 +59,9 @@ extension SearchResultsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewCell.searchResultCell, for: indexPath) as? UITableViewCell else {
-            fatalError("Failed to dequeue cell for identifier SearchResultCell")
-        }
-        
         let setlist = setlists[indexPath.row]
-        cell.textLabel?.text = setlist.venue.name
-        cell.detailTextLabel?.text = setlist.eventDate
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewCell.searchResultCell, for: indexPath)
+        cell.textLabel?.text = "\(setlist.venue.name), \(setlist.eventDate)"
         return cell
     }
 }

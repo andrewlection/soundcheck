@@ -50,6 +50,10 @@ final class SearchParentViewController: UIPageViewController {
         setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
     }
     
+    private func showQueryView() {
+        navigateToViewController(searchQueryViewController)
+    }
+    
     private func showLoadingView() {
         navigateToViewController(searchLoadingViewController)
     }
@@ -58,6 +62,20 @@ final class SearchParentViewController: UIPageViewController {
         let searchResultsViewController = SearchResultsViewController(setlists: setlists)
         searchResultsViewController.delegate = self
         navigateToViewController(searchResultsViewController)
+    }
+    
+    // MARK: - Helper
+    private func playlistFrom(_ setlist: Setlist) -> Playlist {
+        let playlist = Playlist()
+        setlist.sets.sets.forEach { set in
+            let playlistSongs = set.song.filter { !$0.isCover && !$0.isTape }.map { PlaylistSong(artistName: setlist.artist.name, name: $0.name) }
+            playlist.addSongs(playlistSongs)
+        }
+        return playlist
+    }
+    
+    private func headerTitle(_ setlist: Setlist) -> String {
+        return "\(setlist.venue.name)\n\(setlist.venue.city.name)\n\(setlist.eventDate)"
     }
 }
 
@@ -95,6 +113,12 @@ extension SearchParentViewController: SearchResultsDelegate {
         }
     }
     
+    func didSelectNewSearch() {
+        DispatchQueue.main.async {
+            self.showQueryView()
+        }
+    }
+    
     private func playPlaylistFrom(_ setlist: Setlist) {
         let playlist = playlistFrom(setlist)
         
@@ -113,19 +137,5 @@ extension SearchParentViewController: SearchResultsDelegate {
                 self.present(player, animated: true, completion: nil)
             }
         }
-    }
-    
-    // TODO: Move into adapater
-    private func playlistFrom(_ setlist: Setlist) -> Playlist {
-        let playlist = Playlist()
-        setlist.sets.sets.forEach { set in
-            let playlistSongs = set.song.filter { !$0.isCover && !$0.isTape }.map { PlaylistSong(artistName: setlist.artist.name, name: $0.name) }
-            playlist.addSongs(playlistSongs)
-        }
-        return playlist
-    }
-    
-    private func headerTitle(_ setlist: Setlist) -> String {
-        return "\(setlist.venue.name)\n\(setlist.venue.city.name)\n\(setlist.eventDate)"
     }
 }

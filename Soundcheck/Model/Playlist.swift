@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Playlist {
+final class Playlist {
     private(set) var songs = [PlaylistSong]()
     
     func addSongs(_ songs: [PlaylistSong]) {

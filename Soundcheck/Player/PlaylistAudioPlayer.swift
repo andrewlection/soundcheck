@@ -24,7 +24,7 @@ private enum CurrentAudioPlayer {
 }
 
 /// A audio player class that plays through a list of PlayListSong sequentially and crossfades between song transitions.
-class PlaylistAudioPlayer {
+final class PlaylistAudioPlayer {
     weak var delegate: QueueAudioPlayerDelegate?
     
     private(set) var isPlaying: Bool = false
@@ -64,7 +64,12 @@ class PlaylistAudioPlayer {
             setupAudioPlayers()
         }
         
-        firstAudioPlayer?.play()
+        switch currentAudioPlayer {
+        case .first:
+            firstAudioPlayer?.play()
+        case .second:
+            secondAudioPlayer?.play()
+        }
         isPlaying = true
     }
     

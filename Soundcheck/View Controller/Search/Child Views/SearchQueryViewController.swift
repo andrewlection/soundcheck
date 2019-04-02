@@ -21,6 +21,8 @@ final class SearchQueryViewController: UIViewController {
     @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var instructionLabelYConstraint: NSLayoutConstraint!
     
+    private var didAnimateInTextField = false
+    
     // Data
     private let setlistFM = SetlistFM()
     private let placeholderTexts = [
@@ -39,7 +41,15 @@ final class SearchQueryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        animateInTextField()
+        if !didAnimateInTextField {
+            animateInTextField()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        clearSearchText()
     }
     
     // MARK: - Initial Setup
@@ -62,7 +72,7 @@ final class SearchQueryViewController: UIViewController {
             self.instructionLabel.alpha = 1.0
             self.searchTextField.alpha = 1.0
             self.view.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: { completed in self.didAnimateInTextField = true })
     }
     
     // MARK: - Helpers

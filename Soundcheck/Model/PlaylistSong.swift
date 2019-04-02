@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PlaylistSong {
+final class PlaylistSong {
     let artistName: String 
     let name: String
     var audioUrl: String?

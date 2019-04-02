@@ -22,18 +22,31 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Ct-bk-8mr">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="86" width="375" height="581"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aI8-cQ-JBc">
+                    <rect key="frame" x="139.5" y="34" width="96" height="33"/>
+                    <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
+                    <state key="normal" title="New Search?">
+                        <color key="titleColor" red="0.1019607843" green="0.71764705880000002" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didSelectNewSearch:" destination="-1" eventType="touchUpInside" id="KOj-Fg-0cr"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <constraints>
-                <constraint firstItem="6Ct-bk-8mr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3Wc-sd-VM6"/>
+                <constraint firstItem="6Ct-bk-8mr" firstAttribute="top" secondItem="aI8-cQ-JBc" secondAttribute="bottom" constant="19" id="78Y-sj-E51"/>
+                <constraint firstItem="aI8-cQ-JBc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Flg-Ex-y1M"/>
                 <constraint firstItem="6Ct-bk-8mr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ML4-zZ-JEK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6Ct-bk-8mr" secondAttribute="trailing" id="RLt-8w-BcC"/>
                 <constraint firstAttribute="bottom" secondItem="6Ct-bk-8mr" secondAttribute="bottom" id="YcP-BA-XZH"/>
+                <constraint firstItem="aI8-cQ-JBc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="d3I-9P-dTr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40000000000001" y="149.77511244377811"/>
         </view>
     </objects>
 </document>

@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Soundcheck/View Controller/Search/SearchParentViewController.swift"
-            timestampString = "575847963.6318851"
+            timestampString = "575895103.275261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "showLoadingView()"
             landmarkType = "7">
          </BreakpointContent>
