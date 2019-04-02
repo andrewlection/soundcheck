@@ -39,9 +39,7 @@ final public class iTunesClient {
                     completion(.failure(NSError()))
                 }
             } catch {
-                let json = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 print("couldn't decode for url: " + path + params.debugDescription)
-                print(json)
             }
         }, failureHandler: { error in
             completion(.failure(error))
@@ -59,7 +57,6 @@ final public class iTunesClient {
         // Construct request
         let aRequest = request(for: url, method: method.rawValue)
         
-        print(aRequest)
         // Perform request
         defaultSession.dataTask(with: aRequest) { data, response, error in
             if let error = error {

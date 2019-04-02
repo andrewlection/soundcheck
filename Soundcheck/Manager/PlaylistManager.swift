@@ -18,6 +18,8 @@ class PlaylistManager {
         return iTunesClient()
     }()
     
+    private let itunesDispatchGroup = DispatchGroup()
+    
     // MARK: - Initialization
     init(playlist: Playlist) {
         self.playlist = playlist
@@ -25,13 +27,14 @@ class PlaylistManager {
     
     // MARK: - Public
     func fetchPreviewUrls(completion: @escaping () -> ()) {
-        for (index, song) in playlist.songs.enumerated() {
-            if index == playlist.songs.count - 1 {
-                fetchPreviewUrl(song: song, completion: completion)
-            } else {
-                fetchPreviewUrl(song: song, completion: nil)
+        playlist.songs.forEach({ song in
+            itunesDispatchGroup.enter()
+            fetchPreviewUrl(song: song) {
+                self.itunesDispatchGroup.leave()
             }
-        }
+        })
+        
+        itunesDispatchGroup.notify(queue: .main, execute: completion)
     }
     
     func songAt(index: Int) -> PlaylistSong? {
@@ -44,12 +47,13 @@ class PlaylistManager {
         itunesApi.searchMusicFor(searchText) { result in
             switch result {
             case .failure(let error):
-                print(error)
+                debugPrint(error)
+                completion?()
             case .success(let songs):
                 if let itunesSong = songs.first {
                     song.audioUrl = itunesSong.previewUrl
-                    completion?()
                 }
+                completion?()
             }
         }
     }

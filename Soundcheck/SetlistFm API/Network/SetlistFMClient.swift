@@ -39,10 +39,7 @@ final public class SetlistFM {
                     completion(.failure(NSError()))
                 }
             } catch {
-                print("couldn't decode for url: " + path)
-                let json = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 print("couldn't decode for url: " + path + params.debugDescription)
-                print(json)
 
             }
         }, failureHandler: { error in

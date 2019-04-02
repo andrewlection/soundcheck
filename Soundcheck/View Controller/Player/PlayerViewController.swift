@@ -102,7 +102,6 @@ extension PlayerViewController: QueueAudioPlayerDelegate {
     }
     
     func didStartSongAtIndex(index: Int) {
-        print("starting song at index: \(index)")
         currentIndex = index
         animateInText(song: playListSongs[currentIndex])
     }
